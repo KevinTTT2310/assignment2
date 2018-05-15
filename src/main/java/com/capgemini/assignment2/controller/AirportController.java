@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/airport/")
+@RequestMapping("/api/airport")
 public class AirportController {
 
     private static ArrayList<Airport> airports = new ArrayList<>();
