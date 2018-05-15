@@ -1,4 +1,4 @@
-package models;
+package com.capgemini.assignment2.models;
 
 import lombok.Data;
 

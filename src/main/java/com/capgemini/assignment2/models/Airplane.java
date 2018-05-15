@@ -1,4 +1,4 @@
-package models;
+package com.capgemini.assignment2.models;
 
 
 import lombok.Data;
@@ -16,5 +16,7 @@ public class Airplane {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private int currentAmountOfFuel;
+    private String name;
+    private int fuel;
+    private String location;
 }

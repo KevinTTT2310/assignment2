@@ -1,15 +1,17 @@
-package controller;
+package com.capgemini.assignment2.controller;
 
-import exception.NotFoundException;
-import models.Airplane;
+import com.capgemini.assignment2.exception.NotFoundException;
+import com.capgemini.assignment2.models.Airplane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import repository.AirplaneRepository;
-import repository.AirportRepository;
+import com.capgemini.assignment2.repository.AirplaneRepository;
+import com.capgemini.assignment2.repository.AirportRepository;
 
 import java.util.ArrayList;
 import java.util.Optional;
 
+@RestController
+@RequestMapping("/api/airplane/")
 public class AirplaneController {
 
     private static ArrayList<Airplane> airplanes = new ArrayList<>();
@@ -18,7 +20,7 @@ public class AirplaneController {
     @Autowired
     private AirplaneRepository airplaneRepository;
 
-    //Get all airplanes from the repository
+    //Get all airplanes from the com.capgemini.assignment2.repository
     @RequestMapping(value= "/", method = RequestMethod.GET)
     public Iterable<Airplane> getAirplane() {
         return airplaneRepository.findAll();
@@ -35,23 +37,23 @@ public class AirplaneController {
         return null;
     }
 
-    //Save airplane to repository
+    //Save airplane to com.capgemini.assignment2.repository
     @RequestMapping(value ="/add", method =RequestMethod.POST)
     public Airplane registerAirplane(@RequestBody Airplane airplane) {
         airplanes.add(airplane);
         return airplaneRepository.save(airplane);
     }
 
-    //Delete airplane from repository. Give Exception when there is no such ID.
-    @RequestMapping(value = "delete/{id}", method = RequestMethod.DELETE)
-    public void deleteAirplane(@PathVariable long id) {
-        Airplane airplane = airplaneRepository.findOne(id);
-
-        if (airplane == null)
-            throw new NotFoundException();
-
-        airplaneRepository.delete(airplane);
-    }
+//    //Delete airplane from com.capgemini.assignment2.repository. Give Exception when there is no such ID.
+//    @RequestMapping(value = "delete/{id}", method = RequestMethod.DELETE)
+//    public void deleteAirplane(@PathVariable long id) {
+//        Airplane airplane = airplaneRepository.findOne(id);
+//
+//        if (airplane == null)
+//            throw new NotFoundException();
+//
+//        airplaneRepository.delete(airplane);
+//    }
 
 }
 

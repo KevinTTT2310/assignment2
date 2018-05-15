@@ -1,9 +1,9 @@
-package controller;
+package com.capgemini.assignment2.controller;
 
-import models.Airport;
+import com.capgemini.assignment2.models.Airport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import repository.AirportRepository;
+import com.capgemini.assignment2.repository.AirportRepository;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -18,7 +18,7 @@ public class AirportController {
     @Autowired
     private AirportRepository airportRepository;
 
-    //Get all airplanes from the repository
+    //Get all airplanes from the com.capgemini.assignment2.repository
     @RequestMapping(value ="/", method = RequestMethod.GET)
     public Iterable<Airport> getAirport() {
         return airportRepository.findAll();
@@ -34,7 +34,7 @@ public class AirportController {
         }
         return null;
     }
-    //Save airplane to repository
+    //Save airplane to com.capgemini.assignment2.repository
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public Airport registerAirport(@RequestBody Airport airport) {
         airports.add(airport);
